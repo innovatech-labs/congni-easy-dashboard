@@ -4,7 +4,7 @@
 
 ## Getting started
 1. Clone this git repository to your local computer
-2. Install via npm ([docs](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable))
+2. Install via npm ([docs](https://classic.yarnpkg.com/lang/en/docs/install))
    - Run `yarn --version` in your terminal to check if you have `yarn` installed
    - If you have `yarn` installed, run `npm install --global yarn`
 3. To startup the react app, run `yarn start` in the root directory
