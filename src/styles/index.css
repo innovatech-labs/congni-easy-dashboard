@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+textarea {
+  resize: none;
+  border-width: .1rem !important;
+  font-size: 1rem !important;
+}
