@@ -10,9 +10,9 @@ const textareaFieldsConfig = [
 function Home() {
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 mt-6">
+            <div className="flex flex-col flex-wrap md:flex-row mt-6 justify-center">
                 {textareaFieldsConfig.map(({ label, required }, i) => (
-                    <div key={i} className="px-6">
+                    <div key={i} className="basis-1/1 px-6 md:basis-1/2">
                         <TextareaField
                             label={label}
                             required={required}
