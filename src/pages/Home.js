@@ -19,7 +19,7 @@ function Home() {
                             style={{ minHeight: "200px" }}
                         />
                     </div>
-                ))} 
+                ))}
             </div>
             <div className="flex justify-center">
                 <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold mt-4 py-2 px-4 border border-gray-400 rounded shadow">
