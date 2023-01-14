@@ -1,0 +1,18 @@
+.topnav {
+    background-color: #EEF2F6;
+    overflow: hidden;
+  }
+  
+.topnav div {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#logo {
+    height: 32px;
+    border-radius: 8px;
+}
