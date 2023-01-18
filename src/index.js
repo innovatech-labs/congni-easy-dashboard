@@ -3,13 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
-import NavBar from './components/NavBar';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Result from './pages/Result';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/result",
+    element: <Result />,
+  },  
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NavBar />
-    <Home />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
