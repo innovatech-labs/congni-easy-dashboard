@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { TextareaField } from "evergreen-ui"
-import ResultModal from "../components/ResultModal";
 
 const textareaFieldsConfig = [
     { label: "Resume", required: true },
@@ -9,8 +8,14 @@ const textareaFieldsConfig = [
 ];
 
 function Home() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [result, setResult] = useState(null);
+    const [resumeInput, setResumeInput] = useState('');
+    const [jobDescriptionInput, setJobDescriptionInput] = useState('');
+    const [coverLetterInput, setCoverLetterInput] = useState('');
 
+    const states = [resumeInput, jobDescriptionInput, coverLetterInput];
+    const onChangeCallbacks = [setResumeInput, setJobDescriptionInput, setCoverLetterInput];
+    
     return (
         <>
             <div className='flex flex-col items-center min-h-screen'>
@@ -19,33 +24,42 @@ function Home() {
                 </div>
                 <p className='mt-1 text-2xl text-slate-500 text-center'>Create quality cover letter with AI technology</p>
                 <div className='max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-3'>
-                    <form className='w-full'>
+                    <div className='w-full'>
                         <div className="grid grid-cols-1 lg:grid-cols-2 mt-6">
-                            {textareaFieldsConfig.map(({ label, required }, i) => (
-                                <div key={i} className="px-6">
-                                    <TextareaField
-                                        label={label}
-                                        required={required}
-                                        style={{ minHeight: "200px" }}
-                                    />
-                                </div>
-                            ))}
+                            <div className="flex flex-col justify-center">
+                                {textareaFieldsConfig.map(({ label, required }, i) => (
+                                    <div key={i} className="px-6">
+                                        <TextareaField
+                                            label={label}
+                                            required={required}
+                                            style={{ minHeight: "100px" }}
+                                            value={states[i]}
+                                            onChange={(e) => onChangeCallbacks[i](e.target.value)}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="px-6">
+                                <TextareaField
+                                    label="Cover Letter written by AI"
+                                    disabled={result === null}
+                                    onChange={(e) => setResult(e.target.value)}
+                                    value={result ?? ''}
+                                    style={{ minHeight: "300px" }}
+                                />
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div className="flex justify-center">
-                    <button 
-                        className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold mt-4 py-2 px-4 border rounded-full shadow"
-                        onClick={() => setIsModalOpen(true)}
+                    <button
+                        className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold my-4 py-2 px-4 border rounded-full shadow"
+                        onClick={() => setResult("foo")}
                     >
                         Generate
                     </button>
                 </div>
             </div>
-            <ResultModal 
-                isOpen={isModalOpen} 
-                setIsOpen={setIsModalOpen}
-            />
         </>
     );
 }
