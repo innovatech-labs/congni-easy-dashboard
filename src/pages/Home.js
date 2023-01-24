@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { TextareaField } from "evergreen-ui"
+import { mockCallingApi } from "../utils/apiHelper";
+import Spinner from "../components/Spinner";
 
 const textareaFieldsConfig = [
     { label: "Resume", required: true },
@@ -8,28 +10,31 @@ const textareaFieldsConfig = [
 ];
 
 function Home() {
+    const [isLoadingResult, setIsLoadingResult] = useState(false);
     const [result, setResult] = useState(null);
     const [resumeInput, setResumeInput] = useState('');
     const [jobDescriptionInput, setJobDescriptionInput] = useState('');
     const [coverLetterInput, setCoverLetterInput] = useState('');
 
     const states = [
-        resumeInput, 
-        jobDescriptionInput, 
+        resumeInput,
+        jobDescriptionInput,
         coverLetterInput
     ];
 
     const onChangeCallbacks = [
-        setResumeInput, 
-        setJobDescriptionInput, 
+        setResumeInput,
+        setJobDescriptionInput,
         setCoverLetterInput
     ];
 
-    const mockOpenAiResult = `Resume input: ${resumeInput}\n` + 
-    `Job Description input: ${jobDescriptionInput}\n` + 
-    `Cover Letter input: ${coverLetterInput}\n` +
-    `This is the mock result`;
-    
+    const handleButtonClick = async () => {
+        setIsLoadingResult(true);
+        const generatedCoverLetter = await mockCallingApi({ resumeInput, jobDescriptionInput, coverLetterInput });
+        setResult(generatedCoverLetter);
+        setIsLoadingResult(false);
+    }
+
     return (
         <>
             <div className='flex flex-col items-center min-h-screen'>
@@ -54,13 +59,17 @@ function Home() {
                                 ))}
                             </div>
                             <div className="px-6">
-                                <TextareaField
-                                    label="Cover Letter written by AI"
-                                    disabled={result === null}
-                                    onChange={(e) => setResult(e.target.value)}
-                                    value={result ?? ''}
-                                    style={{ minHeight: "300px" }}
-                                />
+                                {
+                                    isLoadingResult
+                                        ? <Spinner />
+                                        : <TextareaField
+                                            label="Cover Letter written by AI"
+                                            disabled={result === null}
+                                            onChange={(e) => setResult(e.target.value)}
+                                            value={result ?? ''}
+                                            style={{ minHeight: "300px" }}
+                                        />
+                                }
                             </div>
                         </div>
                     </div>
@@ -68,7 +77,7 @@ function Home() {
                 <div className="flex justify-center">
                     <button
                         className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold my-4 py-2 px-4 border rounded-full shadow"
-                        onClick={() => setResult(mockOpenAiResult)}
+                        onClick={handleButtonClick}
                     >
                         Generate
                     </button>
