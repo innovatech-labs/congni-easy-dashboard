@@ -9,24 +9,32 @@ const textareaFieldsConfig = [
 
 function Home() {
     return (
-        <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 mt-6">
-                {textareaFieldsConfig.map(({ label, required }, i) => (
-                    <div key={i} className="px-6">
-                        <TextareaField
-                            label={label}
-                            required={required}
-                            style={{ minHeight: "200px" }}
-                        />
+        <div className='flex flex-col items-center min-h-screen'>
+            <div className='text-6xl font-bold my-6' id="app-title">
+                Innovatech
+            </div>
+            <p className='mt-1 text-2xl text-slate-500'>Create quality cover letter with AI technology</p>
+            <div className='max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-3'>
+                <form className='w-full'>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 mt-6">
+                        {textareaFieldsConfig.map(({ label, required }, i) => (
+                            <div key={i} className="px-6">
+                                <TextareaField
+                                    label={label}
+                                    required={required}
+                                    style={{ minHeight: "200px" }}
+                                />
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </form>
             </div>
             <div className="flex justify-center">
-                <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold mt-4 py-2 px-4 border border-gray-400 rounded shadow">
-                    Generate Cover Letter
+                <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold mt-4 py-2 px-4 border rounded-full shadow">
+                    Generate
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 

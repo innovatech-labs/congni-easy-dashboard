@@ -7,3 +7,9 @@ textarea {
   border-width: .1rem !important;
   font-size: 1rem !important;
 }
+
+#app-title {
+  background: linear-gradient(to right, #34d399,  #10b981, #047857, #065f46);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
