@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from 'react-router-dom';
 import { TextareaField } from "evergreen-ui"
 
 const textareaFieldsConfig = [
@@ -8,6 +9,7 @@ const textareaFieldsConfig = [
 ];
 
 function Home() {
+    const navigate = useNavigate();
     return (
         <div className='flex flex-col items-center min-h-screen'>
             <div className='text-6xl font-bold my-6' id="app-title">
