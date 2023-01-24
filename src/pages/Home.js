@@ -13,8 +13,22 @@ function Home() {
     const [jobDescriptionInput, setJobDescriptionInput] = useState('');
     const [coverLetterInput, setCoverLetterInput] = useState('');
 
-    const states = [resumeInput, jobDescriptionInput, coverLetterInput];
-    const onChangeCallbacks = [setResumeInput, setJobDescriptionInput, setCoverLetterInput];
+    const states = [
+        resumeInput, 
+        jobDescriptionInput, 
+        coverLetterInput
+    ];
+
+    const onChangeCallbacks = [
+        setResumeInput, 
+        setJobDescriptionInput, 
+        setCoverLetterInput
+    ];
+
+    const mockOpenAiResult = `Resume input: ${resumeInput}\n` + 
+    `Job Description input: ${jobDescriptionInput}\n` + 
+    `Cover Letter input: ${coverLetterInput}\n` +
+    `This is the mock result`;
     
     return (
         <>
@@ -54,7 +68,7 @@ function Home() {
                 <div className="flex justify-center">
                     <button
                         className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold my-4 py-2 px-4 border rounded-full shadow"
-                        onClick={() => setResult("foo")}
+                        onClick={() => setResult(mockOpenAiResult)}
                     >
                         Generate
                     </button>
