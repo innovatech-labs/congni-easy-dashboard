@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { TextareaField } from "evergreen-ui"
 import { mockCallingApi } from "../utils/apiHelper";
 import Spinner from "../components/Spinner";
+import CopyToClipboardButton from "../components/CopyToClipboardButton"
 
 const textareaFieldsConfig = [
     { label: "Resume", required: true },
@@ -22,6 +23,8 @@ function Home() {
         coverLetterInput
     ];
 
+    const toDisableButton = resumeInput.length === 0 || jobDescriptionInput.length === 0
+
     const onChangeCallbacks = [
         setResumeInput,
         setJobDescriptionInput,
@@ -41,7 +44,7 @@ function Home() {
                 <div className='text-6xl font-bold my-6 py-2' id="app-title">
                     CogniEasy
                 </div>
-                <p className='mt-1 text-2xl text-slate-500 text-center'>Create quality cover letter with AI technology</p>
+                <p className='mt-1 text-2xl text-slate-500 text-center'>Generate cover letter with AI technology</p>
                 <div className='max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-3'>
                     <div className='w-full'>
                         <div className="grid grid-cols-1 lg:grid-cols-2 mt-6">
@@ -62,13 +65,18 @@ function Home() {
                                 {
                                     isLoadingResult
                                         ? <Spinner />
-                                        : <TextareaField
-                                            label="Cover Letter written by AI"
-                                            disabled={result === null}
-                                            onChange={(e) => setResult(e.target.value)}
-                                            value={result ?? ''}
-                                            style={{ minHeight: "300px" }}
-                                        />
+                                        : <div>
+                                            <TextareaField
+                                                label="Cover Letter written by AI"
+                                                disabled={result === null}
+                                                onChange={(e) => setResult(e.target.value)}
+                                                value={result ?? ''}
+                                                style={{ minHeight: "300px" }}
+                                            />
+                                            <div className="flex flex-row justify-end">
+                                                <CopyToClipboardButton result={result} key={result} />
+                                            </div>
+                                        </div>
                                 }
                             </div>
                         </div>
@@ -76,6 +84,7 @@ function Home() {
                 </div>
                 <div className="flex justify-center">
                     <button
+                        disabled={toDisableButton}
                         className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold my-4 py-2 px-4 border rounded-full shadow"
                         onClick={handleButtonClick}
                     >
