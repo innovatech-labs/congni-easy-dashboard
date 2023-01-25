@@ -7,17 +7,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Result from './pages/Result';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/result",
-    element: <Result />,
-  },  
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
