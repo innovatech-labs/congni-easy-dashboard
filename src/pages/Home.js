@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { TextareaField } from "evergreen-ui"
-import { mockCallingApi } from "../utils/apiHelper";
+import { mockCallingApi, callApi } from "../utils/apiHelper";
 import Spinner from "../components/Spinner";
 import CopyToClipboardButton from "../components/CopyToClipboardButton"
 
@@ -33,7 +33,7 @@ function Home() {
 
     const handleButtonClick = async () => {
         setIsLoadingResult(true);
-        const generatedCoverLetter = await mockCallingApi({ resumeInput, jobDescriptionInput, coverLetterInput });
+        const generatedCoverLetter = await callApi({ resumeInput, jobDescriptionInput, coverLetterInput });
         setResult(generatedCoverLetter);
         setIsLoadingResult(false);
     }
