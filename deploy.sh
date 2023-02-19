@@ -3,9 +3,6 @@
 git clone https://github.com/innovatech-labs/congni-easy-dashboard.git
 cd congni-easy-dashboard
 
-# TO BE DELETED
-git checkout deploy-to-gh-pages
-
 # Configure remote origin
 git remote rm origin
 git remote add origin https://github.com/innovatech-labs/congni-easy-deployment-test.git
