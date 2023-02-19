@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/congni-easy-dashboard/static/css/main.385df5c3.css",
-    "main.js": "/congni-easy-dashboard/static/js/main.3e56109f.js",
-    "static/js/787.b7444acc.chunk.js": "/congni-easy-dashboard/static/js/787.b7444acc.chunk.js",
-    "index.html": "/congni-easy-dashboard/index.html",
-    "main.385df5c3.css.map": "/congni-easy-dashboard/static/css/main.385df5c3.css.map",
-    "main.3e56109f.js.map": "/congni-easy-dashboard/static/js/main.3e56109f.js.map",
-    "787.b7444acc.chunk.js.map": "/congni-easy-dashboard/static/js/787.b7444acc.chunk.js.map"
+    "main.css": "/congni-easy-deployment-test/static/css/main.385df5c3.css",
+    "main.js": "/congni-easy-deployment-test/static/js/main.a5a8884b.js",
+    "static/js/787.b7444acc.chunk.js": "/congni-easy-deployment-test/static/js/787.b7444acc.chunk.js",
+    "index.html": "/congni-easy-deployment-test/index.html",
+    "main.385df5c3.css.map": "/congni-easy-deployment-test/static/css/main.385df5c3.css.map",
+    "main.a5a8884b.js.map": "/congni-easy-deployment-test/static/js/main.a5a8884b.js.map",
+    "787.b7444acc.chunk.js.map": "/congni-easy-deployment-test/static/js/787.b7444acc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.385df5c3.css",
-    "static/js/main.3e56109f.js"
+    "static/js/main.a5a8884b.js"
   ]
 }
