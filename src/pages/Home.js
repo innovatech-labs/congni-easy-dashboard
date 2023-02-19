@@ -10,6 +10,8 @@ const textareaFieldsConfig = [
     { label: "Cover Letter", required: false }
 ];
 
+const baseClassesForButton = " bg-emerald-500 text-white font-semibold my-4 py-2 px-4 border rounded-full shadow"
+
 function Home() {
     const [isLoadingResult, setIsLoadingResult] = useState(false);
     const [result, setResult] = useState(null);
@@ -83,13 +85,25 @@ function Home() {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <button
-                        disabled={toDisableButton}
-                        className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold my-4 py-2 px-4 border rounded-full shadow"
-                        onClick={handleButtonClick}
-                    >
-                        Generate
-                    </button>
+                    {
+                        toDisableButton
+                            ?
+                            <button
+                                disabled={toDisableButton}
+                                className={`disabled:opacity-50 ${baseClassesForButton}`}
+                                onClick={handleButtonClick}
+                            >
+                                Generate
+                            </button>
+                            :
+                            <button
+                                disabled={toDisableButton}
+                                className={`hover:bg-emerald-600 ${baseClassesForButton}`}
+                                onClick={handleButtonClick}
+                            >
+                                Generate
+                            </button>
+                    }
                 </div>
             </div>
         </>
