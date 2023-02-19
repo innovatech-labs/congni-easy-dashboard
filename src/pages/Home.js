@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { TextareaField } from "evergreen-ui"
-import { mockCallingApi, callApi } from "../utils/apiHelper";
+import { callApi } from "../utils/apiHelper";
 import Spinner from "../components/Spinner";
 import CopyToClipboardButton from "../components/CopyToClipboardButton"
 
