@@ -22,6 +22,6 @@ export const callApi = async({resumeInput, jobDescriptionInput, coverLetterInput
             "past_experiences": coverLetterInput
         })
     });
-    const result = await res.text(); // .json() might be more preferred.  Some changes might be needed on backend
+    const {result} = await res.json();
     return result
 }
