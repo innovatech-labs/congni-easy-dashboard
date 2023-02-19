@@ -4,11 +4,11 @@ import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />,
