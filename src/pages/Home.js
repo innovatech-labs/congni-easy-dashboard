@@ -85,25 +85,13 @@ function Home() {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    {
-                        toDisableButton
-                            ?
-                            <button
-                                disabled={toDisableButton}
-                                className={`disabled:opacity-50 ${baseClassesForButton}`}
-                                onClick={handleButtonClick}
-                            >
-                                Generate
-                            </button>
-                            :
-                            <button
-                                disabled={toDisableButton}
-                                className={`hover:bg-emerald-600 ${baseClassesForButton}`}
-                                onClick={handleButtonClick}
-                            >
-                                Generate
-                            </button>
-                    }
+                    <button
+                        disabled={toDisableButton}
+                        className={`${baseClassesForButton} ${toDisableButton ? "disabled:opacity-50" : "hover:bg-emerald-600"}`}
+                        onClick={handleButtonClick}
+                    >
+                        Generate
+                    </button>
                 </div>
             </div>
         </>
