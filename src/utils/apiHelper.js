@@ -10,7 +10,7 @@ export const mockCallingApi = async ({resumeInput, jobDescriptionInput, coverLet
 }
 
 export const callApi = async({resumeInput, jobDescriptionInput, coverLetterInput}) => {
-    const res = await fetch("http://127.0.0.1:8000/cover_letter", {
+    const res = await fetch("https://nxt2jckacbq5eso3h35swumoyy0uqkus.lambda-url.us-east-1.on.aws/cover_letter", {
         method: "POST",
         headers: {
             'Accept': 'application/json',
