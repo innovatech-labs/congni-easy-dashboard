@@ -1,0 +1,33 @@
+name: Build and Deploy React App to GitHub Pages
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+on: [push]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build React App
+        run: npm run build
+        
+      - name: Deploy to GitHub Pages
+        uses: jamesives/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: build
+          token: ${{ secrets.TOKEN }}
+          git-config-email: <>
+          repository-name: innovatech-labs/congni-easy
