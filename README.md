@@ -1,6 +1,6 @@
 # CogniEasy Dashboard
 
-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), by running the command `yarn create react-app congni-easy-dashboard`.
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), by running the command `yarn create react-app cogni-easy-dashboard`.
 
 ## Getting started
 1. Clone this git repository to your local computer

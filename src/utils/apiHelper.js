@@ -1,20 +1,10 @@
-export const mockCallingApi = async ({resumeInput, jobDescriptionInput, coverLetterInput}) => {
-    await new Promise(r => setTimeout(r, 2000));
-    
-    const mockOpenAiResult = `Resume input: ${resumeInput}\n` + 
-    `Job Description input: ${jobDescriptionInput}\n` + 
-    `Cover Letter input: ${coverLetterInput}\n` +
-    `This is a mock result`;
-
-    return mockOpenAiResult;
-}
+const API_ENDPOINT = process.env.REACT_APP_API_URL ?? "http://127.0.0.1:8000";
 
 export const callApi = async({resumeInput, jobDescriptionInput, coverLetterInput}) => {
-    const res = await fetch("http://127.0.0.1:8000/cover_letter", {
+    const res = await fetch(`${API_ENDPOINT}/cover_letter`, {
         method: "POST",
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             "resume": resumeInput,
@@ -22,6 +12,6 @@ export const callApi = async({resumeInput, jobDescriptionInput, coverLetterInput
             "past_experiences": coverLetterInput
         })
     });
-    const result = await res.text(); // .json() might be more preferred.  Some changes might be needed on backend
+    const {result} = await res.json();
     return result
 }
